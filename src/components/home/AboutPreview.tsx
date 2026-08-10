@@ -1,0 +1,106 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TagGroup } from "@/components/ui/Tag";
+
+const skills = [
+  "UI/UX Design",
+  "Product Strategy",
+  "Design Systems",
+  "Mobile App Design",
+  "Web Applications",
+  "Digital Illustration",
+  "AI-assisted Development",
+  "User Research",
+];
+
+const highlights = [
+  { stat: "3+", label: "Years Experience" },
+  { stat: "10+", label: "Projects Completed" },
+  { stat: "98%", label: "Client Satisfaction" },
+];
+
+export const AboutPreview: React.FC = () => {
+  return (
+    <section id="about" aria-label="About section" className="w-full py-12 md:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16 flex flex-col gap-12">
+        {/* Split Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Portrait & Visual Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-5 relative -top-[4px] flex flex-col items-center gap-3"
+          >
+            <div className="relative aspect-4/5 w-full flex items-center justify-center">
+              <Image
+                src="/images/projects/About.png"
+                alt="Mercy Onyilo - Product Designer & Illustrator"
+                fill
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-contain transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <p className="text-xs sm:text-sm font-medium tracking-wide text-[#5B5757] text-center">
+              Product Designer &amp; Illustrator
+            </p>
+          </motion.div>
+
+          {/* Right Column: Bio & Core Competencies */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-7 flex flex-col gap-6"
+          >
+            <SectionHeading
+              badge="About Me"
+              title="Design with Purpose, Built for People"
+            />
+
+            <p className="text-lg sm:text-xl text-black font-normal leading-relaxed">
+              Hi, my name is Mercy Onyilo, a product designer with over 3 years of
+              experience crafting digital experiences that seamlessly blend
+              technology, aesthetics, and functionality.
+            </p>
+
+            <p className="text-base text-[#5B5757] leading-relaxed">
+              Whether designing scalable mobile platforms or illustrating bespoke brand assets, I focus on creating intuitive, human-centered interfaces that make complex tools feel effortless.
+            </p>
+
+            {/* Metrics */}
+            <div className="grid grid-cols-3 gap-4 py-4 border-y border-black/10">
+              {highlights.map((item, i) => (
+                <div key={i} className="flex flex-col gap-1">
+                  <span className="text-2xl sm:text-4xl font-bold tracking-tight text-black">
+                    {item.stat}
+                  </span>
+                  <span className="text-xs sm:text-sm text-[#5B5757]">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Core Skills Tags */}
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
+                Core Competencies
+              </span>
+              <TagGroup tags={skills} variant="light" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+AboutPreview.displayName = "AboutPreview";
