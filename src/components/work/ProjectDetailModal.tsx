@@ -79,14 +79,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               {project.galleryImages.map((src, idx) => (
                 <div
                   key={idx}
-                  className="group relative aspect-4/5 w-full rounded-2xl overflow-hidden bg-[#F8F8F8] border border-black/10 shadow-xs transition-all duration-300 hover:shadow-lg"
+                  className="group relative aspect-4/5 w-full rounded-xl overflow-hidden transition-all duration-300"
                 >
                   <Image
                     src={src}
                     alt={`Illustration artwork ${idx + 1}`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               ))}

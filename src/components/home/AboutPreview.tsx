@@ -28,14 +28,14 @@ export const AboutPreview: React.FC = () => {
     <section id="about" aria-label="About section" className="w-full py-12 md:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16 flex flex-col gap-12">
         {/* Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Portrait & Visual Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 relative -top-[4px] flex flex-col items-center gap-3"
+            className="lg:col-span-5 flex flex-col items-center gap-3"
           >
             <div className="relative aspect-4/5 w-full flex items-center justify-center">
               <Image
@@ -47,9 +47,6 @@ export const AboutPreview: React.FC = () => {
                 className="object-contain transition-transform duration-500 hover:scale-105"
               />
             </div>
-            <p className="text-xs sm:text-sm font-medium tracking-wide text-[#5B5757] text-center">
-              Product Designer &amp; Illustrator
-            </p>
           </motion.div>
 
           {/* Right Column: Bio & Core Competencies */}

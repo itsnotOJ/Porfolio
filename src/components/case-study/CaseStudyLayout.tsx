@@ -20,7 +20,20 @@ interface CaseStudyLayoutProps {
   data: CaseStudyData;
 }
 
+const isLightColor = (hex: string) => {
+  const c = hex.replace("#", "");
+  if (c.length !== 6) return false;
+  const r = parseInt(c.substring(0, 2), 16);
+  const g = parseInt(c.substring(2, 4), 16);
+  const b = parseInt(c.substring(4, 6), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness > 155;
+};
+
 export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
+  const isPrimaryLight = isLightColor(data.designSystem.primaryColor);
+  const isSecondaryLight = isLightColor(data.designSystem.secondaryColor);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-black antialiased">
       {/* Global Navigation */}
@@ -228,17 +241,27 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-2">
-              <div className="p-6 rounded-2xl bg-black text-white flex flex-col justify-between h-36">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#D9D9D9]">
+              <div
+                className="p-6 rounded-2xl flex flex-col justify-between h-36 border border-black/10 shadow-xs"
+                style={{ backgroundColor: data.designSystem.primaryColor }}
+              >
+                <span className={`text-xs font-semibold uppercase tracking-wider ${isPrimaryLight ? "text-black/70" : "text-white/80"}`}>
                   Primary Color
                 </span>
-                <span className="text-2xl font-bold">{data.designSystem.primaryColor}</span>
+                <span className={`text-2xl font-bold ${isPrimaryLight ? "text-black" : "text-white"}`}>
+                  {data.designSystem.primaryColor}
+                </span>
               </div>
-              <div className="p-6 rounded-2xl bg-[#D9D9D9] text-black flex flex-col justify-between h-36 border border-black/10">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
+              <div
+                className="p-6 rounded-2xl flex flex-col justify-between h-36 border border-black/10 shadow-xs"
+                style={{ backgroundColor: data.designSystem.secondaryColor }}
+              >
+                <span className={`text-xs font-semibold uppercase tracking-wider ${isSecondaryLight ? "text-black/70" : "text-white/80"}`}>
                   Secondary Color
                 </span>
-                <span className="text-2xl font-bold">{data.designSystem.secondaryColor}</span>
+                <span className={`text-2xl font-bold ${isSecondaryLight ? "text-black" : "text-white"}`}>
+                  {data.designSystem.secondaryColor}
+                </span>
               </div>
               <div className="p-6 rounded-2xl bg-[#F9F9F9] text-black flex flex-col justify-between h-36 border border-black/10">
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
