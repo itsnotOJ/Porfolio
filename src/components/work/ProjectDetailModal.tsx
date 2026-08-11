@@ -79,7 +79,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               {project.galleryImages.map((src, idx) => (
                 <div
                   key={idx}
-                  className="group relative aspect-4/5 w-full rounded-xl overflow-hidden transition-all duration-300"
+                  className="group relative aspect-[275.12/389.75] w-full rounded-2xl overflow-hidden transition-all duration-300"
                 >
                   <Image
                     src={src}

@@ -23,15 +23,36 @@ export const ContactForm: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate async submission
-    setTimeout(() => {
+    try {
+      await fetch("https://formsubmit.co/ajax/iyenugwa18@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Portfolio Inquiry: ${formData.subject} from ${formData.name}`,
+        }),
+      });
+    } catch {
+      const mailtoUrl = `mailto:iyenugwa18@gmail.com?subject=${encodeURIComponent(
+        `Inquiry: ${formData.subject}`
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nInquiry Type: ${formData.subject}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoUrl;
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 1000);
+    }
   };
 
   const handleReset = () => {

@@ -102,7 +102,7 @@ export const IllustrationShowcase: React.FC = () => {
               aria-haspopup="dialog"
             >
               {/* Image Frame */}
-              <div className="relative aspect-4/5 w-full overflow-hidden bg-black/5">
+              <div className="relative aspect-[275.12/389.75] w-full overflow-hidden bg-black/5">
                 <Image
                   src={art.src}
                   alt={art.alt}
