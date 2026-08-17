@@ -38,7 +38,7 @@ export const Button = React.forwardRef<
       primary:
         "bg-black text-[#D9D9D9] border border-black rounded-[27px] hover:bg-white hover:text-black",
       secondary:
-        "bg-[#D9D9D9] text-black border border-transparent rounded-[27px] hover:bg-black hover:text-white",
+        "bg-transparent text-black border border-black rounded-[27px] hover:bg-black hover:text-white",
       outline:
         "bg-transparent text-black border border-black rounded-[27px] hover:bg-black hover:text-white",
       icon:

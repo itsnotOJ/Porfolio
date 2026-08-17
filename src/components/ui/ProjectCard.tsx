@@ -2,14 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/Button";
-import { TagGroup } from "@/components/ui/Tag";
 
 export interface ProjectCardData {
   id: string;
   slug?: string;
+  href?: string;
   title: string;
   subtitle: string;
   description: string;
@@ -38,6 +39,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onSelect,
   className = "",
 }) => {
+  const projectUrl =
+    project.href || (project.slug ? `/work/${project.slug}` : undefined);
+
   return (
     <motion.article
       layout
@@ -49,18 +53,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       {/* Top Image Container */}
       <div className="relative aspect-16/10 w-full overflow-hidden bg-black/5">
-        <Image
-          src={project.imageSrc}
-          alt={project.imageAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-
-        {/* Top-Left Pill Tags Overlay */}
-        <div className="absolute top-4 left-4 z-10">
-          <TagGroup tags={project.tags} variant="dark" />
-        </div>
+        {projectUrl ? (
+          <Link href={projectUrl} className="block w-full h-full">
+            <Image
+              src={project.imageSrc}
+              alt={project.imageAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </Link>
+        ) : (
+          <Image
+            src={project.imageSrc}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
 
         {/* Year Pill Top-Right */}
         {project.year && (
@@ -77,7 +88,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {project.subtitle}
           </span>
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-black group-hover:text-black/80 transition-colors">
-            {project.title}
+            {projectUrl ? (
+              <Link href={projectUrl} className="hover:underline">
+                {project.title}
+              </Link>
+            ) : (
+              project.title
+            )}
           </h3>
           <p className="mt-1 text-sm sm:text-base text-[#5B5757] leading-relaxed line-clamp-3">
             {project.description}
@@ -87,20 +104,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Bottom Actions */}
         <div className="mt-6 flex items-center justify-between pt-4 border-t border-black/5">
           <PrimaryButton
-            onClick={() => onSelect?.(project)}
+            href={projectUrl}
+            onClick={!projectUrl ? () => onSelect?.(project) : undefined}
             size="md"
             className="rounded-[27px] text-xs sm:text-sm font-medium"
           >
             {project.ctaText || "View Case Study"}
           </PrimaryButton>
 
-          <button
-            onClick={() => onSelect?.(project)}
-            aria-label={`View details for ${project.title}`}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black transition-all hover:bg-black hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
-          >
-            <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-          </button>
+          {projectUrl ? (
+            <Link
+              href={projectUrl}
+              aria-label={`View details for ${project.title}`}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black transition-all hover:bg-black hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            >
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+          ) : (
+            <button
+              onClick={() => onSelect?.(project)}
+              aria-label={`View details for ${project.title}`}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black transition-all hover:bg-black hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            >
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+            </button>
+          )}
         </div>
       </div>
     </motion.article>
@@ -108,3 +136,4 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 ProjectCard.displayName = "ProjectCard";
+

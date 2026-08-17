@@ -68,12 +68,12 @@ export const Hero: React.FC = () => {
           className="flex w-full flex-col items-center text-center lg:w-1/2 lg:items-start lg:text-left"
         >
           {/* Availability Badge */}
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
             <span className="relative flex h-2 w-2" aria-hidden="true">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
             </span>
-            Available for new opportunities
+            Available for work
           </div>
 
           {/* Name */}
@@ -82,13 +82,13 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Title */}
-          <p className="mt-2 text-lg font-normal text-[#5B5757] sm:text-xl lg:text-2xl">
+          <p className="mt-2 text-base font-normal text-[#5B5757]">
             Product Designer &amp; Illustrator
           </p>
 
           {/* Tagline */}
           <p className="mt-4 max-w-xl text-base text-black/80 sm:text-lg lg:text-xl leading-relaxed">
-            From idea to interface, I focus on creating clean, structured
+            From idea to interface, I focus on creating clean and structured
             experiences that feel simple to use.
           </p>
 

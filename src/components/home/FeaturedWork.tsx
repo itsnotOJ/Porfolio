@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/Button";
-import { TagGroup } from "@/components/ui/Tag";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 
@@ -116,11 +115,6 @@ export const FeaturedWork: React.FC = () => {
                     }
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-
-                  {/* Top-Left Pill Tags Overlay */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <TagGroup tags={project.tags} variant="dark" />
-                  </div>
                 </div>
 
                 {/* Card Details Body */}
