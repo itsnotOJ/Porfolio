@@ -17,7 +17,7 @@ export interface SocialLinksProps {
 }
 
 const defaultLinks: SocialLink[] = [
-  { label: "LinkedIn", href: "https://linkedin.com", isExternal: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/mercy-onyilo-b10761361?utm_source=share_via&utm_content=profile&utm_medium=member_ios", isExternal: true },
   { label: "Behance", href: "https://www.behance.net/mercyonyilo", isExternal: true },
   { label: "Medium", href: "https://medium.com/@Iye_", isExternal: true },
 ];

@@ -11,7 +11,9 @@ interface CaseStudyPageProps {
 }
 
 export async function generateStaticParams() {
-  return [];
+  return Object.keys(caseStudies).map((slug) => ({
+    slug,
+  }));
 }
 
 export async function generateMetadata({

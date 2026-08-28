@@ -10,6 +10,7 @@ export interface CaseStudyData {
   client: string;
   tools: string[];
   tags: string[];
+  logo?: string;
   heroImage: string;
   heroImageAlt: string;
   nextSlug: string;
@@ -52,8 +53,8 @@ export interface CaseStudyData {
 
 export const caseStudies: Record<string, CaseStudyData> = {
   nurri: {
-    slug: "nurri",
-    title: "Nurri AI Health Companion",
+    slug: "nurri AI",
+    title: "Nurri",
     subtitle: "AI powered health and nutrition platform",
     tagline:
       "An AI-powered companion that helps users achieve health and nutrition goals through intelligent diet recommendations, health tracking and real-time suggestions.",
@@ -64,8 +65,9 @@ export const caseStudies: Record<string, CaseStudyData> = {
     client: "Nurri",
     tools: ["Figma",],
     tags: ["UI/UX Design", "Mobile App", "Web Design", "Design System"],
-    heroImage: "/images/projects/Nurri mockup 2.png",
-    heroImageAlt: "Nurri AI Health Companion Mockups",
+    logo: "/images/logos/Logo-Nurri.svg",
+    heroImage: "/images/projects/Nurri-mockup-2.png",
+    heroImageAlt: "Nurri AI Mockup",
     nextSlug: "oxtago",
     nextTitle: "Oxtago Financial SaaS",
     prevSlug: "oxtago",
@@ -100,7 +102,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         title: "1. AI-Powered Meal Planning",
         description:
           "Nurri creates personalized meal plans based on each user's health goals, dietary preferences, allergies, lifestyle, and schedule. Instead of generic recommendations, the AI generates meal suggestions that adapt to individual needs, making healthy eating easier to maintain over time.",
-        imageSrc: "/images/projects/Nurri mockup 2.png",
+        imageSrc: "/images/projects/AI-Powered-Meal-Planning.png",
         imageAlt: "Nurri Booking Interface Screens",
         highlights: [
           "Personalized meal plans tailored to individual health needs.",
@@ -111,7 +113,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         title: "2. AI Nutrition Assistant",
         description:
           "An integrated conversational AI allows users to ask questions about meals, portion sizes, hydration, nutrition, and healthy habits whenever they need guidance. This provides real-time, contextual support without interrupting the user's journey, making nutrition advice more accessible and actionable.",
-        imageSrc: "/images/projects/Nurri mockup.png",
+        imageSrc: "/images/projects/AI-Nutrition-Assistant.png",
         imageAlt: "Nurri Artisan Portal Interface",
         highlights: [
           "Instant answers to nutrition and wellness questions.",
@@ -123,7 +125,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         title: "3. Health Goal Tracking",
         description:
           "Users can track progress toward personal health and nutrition goals while receiving gentle reminders and motivational feedback. By visualizing progress and celebrating milestones, the feature encourages long-term consistency and helps users build sustainable eating habits.",
-        imageSrc: "/images/projects/Nurri mockup.png",
+        imageSrc: "/images/projects/Health-Goal-Tracking.png",
         imageAlt: "Nurri mockup",
         highlights: [
           "Monitor progress toward health and fitness goals.",
@@ -135,7 +137,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         title: "4. Personalized Nutrition Insights",
         description:
           "Nurri delivers tailored nutrition tips and educational content based on each user's dietary preferences, lifestyle, and wellness goals. Instead of presenting generic health advice, the app surfaces relevant insights that help users make informed food choices every day.",
-        imageSrc: "/images/projects/Nurri mockup.png",
+        imageSrc: "/images/projects/Personalized-Nutrition-Insights.png",
         imageAlt: "Nurri Artisan Portal Interface",
         highlights: [
           "Receive tailored nutrition tips and recommendations.",
@@ -164,7 +166,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     title: "Oxtago",
     subtitle: "Enterprise Financial Analytics & Dashboard",
     tagline:
-      "Empowering finance teams with real-time revenue tracking, automated reconciliation, and executive reporting.",
+      "Bridging the gap between reliability and accessibility.",
     category: "Mobile & Web App",
     year: "2025",
     role: "Product Designer",
@@ -172,34 +174,37 @@ export const caseStudies: Record<string, CaseStudyData> = {
     client: "Oxtago",
     tools: ["Figma"],
     tags: ["UI/UX Design", "Dashboard"],
-    heroImage: "/images/projects/Oxtago mockup.png",
-    heroImageAlt: "Oxtago Financial Analytics Dashboard",
+    logo: "/images/logos/Logo-Oxtago.svg",
+    heroImage: "/images/projects/Oxtago-mockup.png",
+    heroImageAlt: "Oxtago",
     nextSlug: "nurri",
     nextTitle: "Illustrations",
     prevSlug: "nurri",
     prevTitle: "Nurri",
 
     problem: {
-      title: "The Challenge: High Data Density & Fragmented Reporting",
+      title: "The Challenge: Building Trust",
       description:
-        "Enterprise finance teams struggled to track multi-currency transactions and revenue metrics due to cluttered spreadsheet dashboards and fragmented third-party payment gateways.",
+        "OXTAGO was conceived to solve a very familiar problem: finding reliable help, fast, without stress or risk. From broken plumbing to short‑notice staffing, people often rely on informal networks, word of mouth, or unverified contacts. The result is usually the same; missed appointments, unclear pricing, and zero accountability.",
       painPoints: [
-        "Overwhelming data density causing cognitive overload for financial analysts",
-        "Lack of real-time synchronization across multi-currency accounts",
-        "Slow custom report generation for executive stakeholders",
-        "Inconsistent design language across legacy banking tools",
+        "Lack of trust in hiring local service providers",
+        "Fragmented booking and payment experiences",
+        "Poor visibility into job progress",
+        "Inefficient provider onboarding and verification",
+        "Limited tools for admins to manage quality and disputes",
       ],
     },
 
     solution: {
-      title: "The Solution: Modular Financial Command Center",
+      title: "The Solution: The Hybrid Marketplace",
       description:
-        "Architected a clean, high-performance financial dashboard that condenses complex revenue streams into actionable visual insights and custom exportable reports.",
+        "OXTAGO was designed as a three-sided platform; A client-facing web experience focused on speed, clarity, and trust, A provider-facing mobile app optimized for mobility, alerts, and earnings, and An admin dashboard for full operational control and oversight.",
       keyDeliverables: [
-        "Modular dashboard cards with customizable layout widgets",
-        "Interactive real-time transaction filter tables",
-        "Automated multi-currency conversion analytics",
-        "Light & Dark theme accessibility support",
+        "Real-time booking and job matching",
+        "GPS-based job tracking",
+        "Provider verification and ratings",
+        "Admin tools for pricing, disputes and analytics",
+        "Transparent pricing and secure payments",
       ],
     },
 
@@ -208,7 +213,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         title: "1. Real-Time Revenue & Expense Intelligence",
         description:
           "Integrated dynamic financial charts allowing analysts to drill down from high-level monthly summaries to granular transaction logs in a single click.",
-        imageSrc: "/images/projects/Oxtago mockup.png",
+        imageSrc: "/images/projects/Oxtago-mockup.png",
         imageAlt: "Oxtago Financial Analytics Widgets",
         highlights: [
           "Live stream transaction feed with status indicators",

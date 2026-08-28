@@ -61,8 +61,21 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-black leading-tight">
-              {data.title}
+            <h1 className="flex items-center">
+              {data.logo ? (
+                <Image
+                  src={data.logo}
+                  alt={data.title}
+                  width={280}
+                  height={80}
+                  className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
+                  priority
+                />
+              ) : (
+                <span className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-black leading-tight">
+                  {data.title}
+                </span>
+              )}
             </h1>
 
             <p className="text-xl sm:text-2xl text-[#5B5757] font-normal leading-relaxed max-w-3xl">
@@ -103,14 +116,14 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-16/9 w-full rounded-3xl overflow-hidden bg-black/5 border border-black/10 shadow-xl my-4"
+            className="relative aspect-16/9 w-full rounded-3xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-xl my-4"
           >
             <Image
               src={data.heroImage}
               alt={data.heroImageAlt}
               fill
               priority
-              className="object-cover"
+              className="object-contain p-2 sm:p-4"
             />
           </motion.div>
         </div>
@@ -212,14 +225,14 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="relative aspect-16/10 w-full lg:w-1/2 rounded-2xl overflow-hidden bg-black/5 border border-black/10 shadow-md">
+                <div className="relative aspect-16/10 w-full lg:w-1/2 rounded-2xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-md">
                   <Image
                     src={feature.imageSrc}
                     alt={feature.imageAlt}
                     fill
                     loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
+                    className="object-contain p-2 sm:p-4"
                   />
                 </div>
               </div>

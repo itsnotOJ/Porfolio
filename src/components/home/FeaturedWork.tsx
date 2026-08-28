@@ -31,7 +31,7 @@ const projects: Project[] = [
     description:
       "An AI-powered companion that helps users achieve health and nutrition goals through intelligent diet recommendations, health tracking and real-time suggestions.",
     tags: ["UI/UX Design", "Mobile App", "Web Design", "AI"],
-    imageSrc: "/images/projects/Nurri mockup 2.png",
+    imageSrc: "/images/projects/Nurri-mockup-2.png",
     imageAlt: "Nurri AI Health Companion App Screenshots",
     href: "/work/nurri",
     isFeatured: true,
@@ -44,7 +44,7 @@ const projects: Project[] = [
     description:
       "A streamlined financial dashboard offering real-time transaction tracking, operational insights, and automated revenue reporting.",
     tags: ["UI/UX Design", "SaaS", "Dashboard", "Fintech"],
-    imageSrc: "/images/projects/Oxtago mockup.png",
+    imageSrc: "/images/projects/Oxtago-mockup.png",
     imageAlt: "Oxtago SaaS Financial Dashboard",
     href: "/work/oxtago",
     isFeatured: false,
