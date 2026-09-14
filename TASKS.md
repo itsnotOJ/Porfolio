@@ -36,3 +36,4 @@ None
 - Removed Resilience, Countdown Milestone, and Panel Session artwork entries from the /work/illustrations gallery page without affecting any other pages.
 - Removed HT Foundation, Speaker Bio Portrait, and Target Objectives artwork entries from the /work/illustrations gallery page without affecting any other pages.
 - Updated Footer contact CTA button text to "Come say hi" while maintaining the mailto email link.
+- Updated mobile navigation menu overlay in Navbar.tsx with a solid white background fill (bg-white) and body scroll lock when open, preventing background page text from bleeding through.

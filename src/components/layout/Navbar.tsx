@@ -79,10 +79,21 @@ export const Navbar: React.FC = () => {
     closeMenu();
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-colors duration-200 bg-white/90 backdrop-blur-md border-b border-black/5",
+        "sticky top-0 z-50 w-full transition-colors duration-200 bg-white border-b border-black/5",
         scrolled && "shadow-xs"
       )}
       aria-label="Main navigation"
@@ -141,44 +152,31 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-              className="fixed inset-0 top-[73px] z-40 bg-black/30 backdrop-blur-xs md:hidden"
-              aria-hidden="true"
-            />
-
-            {/* Slide-in Drawer */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-[73px] bottom-0 z-50 w-3/4 max-w-sm bg-white p-8 shadow-xl md:hidden flex flex-col gap-6"
-              role="dialog"
-              aria-label="Mobile Navigation Menu"
-            >
-              <div className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-2xl font-medium text-[#6C6C6C] transition-colors hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-md"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          </>
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed inset-x-0 top-[69px] bottom-0 z-50 w-full bg-white p-8 md:hidden flex flex-col gap-6 overflow-y-auto"
+            role="dialog"
+            aria-label="Mobile Navigation Menu"
+          >
+            <div className="flex flex-col gap-6 pt-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-2xl font-medium text-[#6C6C6C] transition-colors hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-md"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
