@@ -141,6 +141,22 @@ Explain decisions only when I ask or when they are important for the implementat
 
 ---
 
+## Design Fidelity
+
+Always implement directly from the approved Figma.
+
+Do not redesign components.
+
+Do not simplify layouts unless explicitly instructed.
+
+Maintain spacing, typography, sizing and hierarchy.
+
+Follow the design tokens defined in PROJECT.md.
+
+Use reusable components.
+
+Prefer composition over duplication.
+
 ## Before Finishing
 
 Before every response verify that:
@@ -149,6 +165,17 @@ Before every response verify that:
 - no unrelated files were changed
 - the solution follows existing project patterns
 - obvious edge cases are handled
+
+## Non-Negotiable Rules
+
+- Never redesign approved Figma layouts.
+- Never modify approved copy without instruction.
+- Never introduce dependencies without approval.
+- Always build reusable components.
+- Always follow the documented tech stack.
+- Always update TASKS.md after completing work.
+- Always record major architectural decisions in DECISIONS.md.
+- Always prioritize accessibility and performance.
 
 End with:
 

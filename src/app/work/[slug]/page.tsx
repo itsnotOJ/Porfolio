@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { caseStudies } from "@/data/caseStudies";
 import { CaseStudyLayout } from "@/components/case-study/CaseStudyLayout";
+import { IllustrationLayout } from "@/components/case-study/IllustrationLayout";
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -29,7 +30,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${caseStudy.title} — Case Study | Mercy Onyilo`,
+    title: `${caseStudy.title} — Mercy Onyilo`,
     description: caseStudy.tagline,
   };
 }
@@ -40,6 +41,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   if (!caseStudy) {
     notFound();
+  }
+
+  if (resolvedParams.slug === "illustrations") {
+    return <IllustrationLayout data={caseStudy} />;
   }
 
   return <CaseStudyLayout data={caseStudy} />;

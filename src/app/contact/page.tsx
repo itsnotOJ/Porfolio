@@ -7,7 +7,6 @@ import {
   ContactInformation,
   ContactForm,
 } from "@/components/contact";
-import { AboutPreview } from "@/components/home";
 
 export const metadata: Metadata = {
   title: "Contact — Mercy Onyilo | Product Designer & Illustrator",
@@ -23,16 +22,13 @@ export default function ContactPage() {
 
       {/* Main Page Content */}
       <main id="main-content" tabIndex={-1} className="flex-1 w-full outline-none">
-        {/* 1. About Me Section */}
-        <AboutPreview />
-
-        {/* 2. Contact Hero */}
+        {/* 1. Contact Hero */}
         <ContactHero />
 
-        {/* 3. Contact Information Cards */}
+        {/* 2. Contact Information Cards */}
         <ContactInformation />
 
-        {/* 4. Direct Contact Form */}
+        {/* 3. Direct Contact Form */}
         <ContactForm />
       </main>
 

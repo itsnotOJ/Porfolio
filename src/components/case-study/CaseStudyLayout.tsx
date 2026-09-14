@@ -116,14 +116,14 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-16/9 w-full rounded-3xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-xl my-4"
+            className="group relative aspect-16/9 w-full rounded-3xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-xl my-4"
           >
             <Image
               src={data.heroImage}
               alt={data.heroImageAlt}
               fill
               priority
-              className="object-contain p-2 sm:p-4"
+              className="object-contain p-2 sm:p-4 transition-transform duration-500 ease-out group-hover:scale-105"
             />
           </motion.div>
         </div>
@@ -204,8 +204,21 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
             {data.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex flex-col lg:flex-row items-center gap-8 p-6 sm:p-8 rounded-3xl border border-black/10 bg-[#F9F9F9]"
+                className="group flex flex-col lg:flex-row items-center gap-8 p-6 sm:p-8 rounded-3xl border border-black/10 bg-[#F9F9F9] hover:shadow-lg transition-all duration-300"
               >
+                {/* Left Column: Image */}
+                <div className="relative aspect-16/10 w-full lg:w-1/2 rounded-2xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-md">
+                  <Image
+                    src={feature.imageSrc}
+                    alt={feature.imageAlt}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-contain p-2 sm:p-4 transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Right Column: Body Text */}
                 <div className="flex flex-col gap-4 lg:w-1/2">
                   <h3 className="text-2xl sm:text-3xl font-bold text-black">
                     {feature.title}
@@ -223,17 +236,6 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <div className="relative aspect-16/10 w-full lg:w-1/2 rounded-2xl overflow-hidden bg-[#F3F4F6] border border-black/10 shadow-md">
-                  <Image
-                    src={feature.imageSrc}
-                    alt={feature.imageAlt}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-contain p-2 sm:p-4"
-                  />
                 </div>
               </div>
             ))}
@@ -286,56 +288,58 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ data }) => {
           </section>
 
           {/* Section 5: Impact & Results */}
-          <section className="flex flex-col gap-6 pt-8 border-t border-black/10">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#5B5757] rounded-full bg-black/5 px-3 py-1 w-fit">
-                05. Results &amp; Impact
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
-                Measurable Project Outcomes
-              </h2>
-            </div>
+          {data.results && data.results.length > 0 && (
+            <section className="flex flex-col gap-6 pt-8 border-t border-black/10">
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#5B5757] rounded-full bg-black/5 px-3 py-1 w-fit">
+                  05. Results &amp; Impact
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
+                  Measurable Project Outcomes
+                </h2>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-2">
-              {data.results.map((res, i) => (
-                <div
-                  key={i}
-                  className="p-8 rounded-3xl border border-black/10 bg-white shadow-xs flex flex-col gap-2"
-                >
-                  <Award className="h-6 w-6 text-black mb-2" aria-hidden="true" />
-                  <span className="text-4xl sm:text-5xl font-bold tracking-tight text-black">
-                    {res.metric}
-                  </span>
-                  <span className="text-sm font-medium text-[#5B5757]">
-                    {res.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-2">
+                {data.results.map((res, i) => (
+                  <div
+                    key={i}
+                    className="p-8 rounded-3xl border border-black/10 bg-white shadow-xs flex flex-col gap-2"
+                  >
+                    <Award className="h-6 w-6 text-black mb-2" aria-hidden="true" />
+                    <span className="text-4xl sm:text-5xl font-bold tracking-tight text-black">
+                      {res.metric}
+                    </span>
+                    <span className="text-sm font-medium text-[#5B5757]">
+                      {res.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Next / Previous Project Navigation Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-12 border-t border-black/10">
             <Link
               href={`/work/${data.prevSlug}`}
-              className="flex items-center gap-3 p-4 rounded-2xl border border-black/10 hover:bg-black hover:text-white transition-all w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              className="group flex items-center gap-3 p-4 rounded-2xl border border-black/10 hover:bg-black hover:text-white transition-all w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
             >
-              <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+              <ArrowLeft className="h-5 w-5 text-black group-hover:text-white transition-colors" aria-hidden="true" />
               <div className="flex flex-col">
-                <span className="text-xs uppercase text-[#5B5757]">Previous Project</span>
-                <span className="font-bold text-base">{data.prevTitle}</span>
+                <span className="text-xs uppercase text-[#5B5757] group-hover:text-white/80 transition-colors">Previous Project</span>
+                <span className="font-bold text-base text-black group-hover:text-white transition-colors">{data.prevTitle}</span>
               </div>
             </Link>
 
             <Link
               href={`/work/${data.nextSlug}`}
-              className="flex items-center gap-3 p-4 rounded-2xl border border-black/10 hover:bg-black hover:text-white transition-all w-full sm:w-auto text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              className="group flex items-center gap-3 p-4 rounded-2xl border border-black/10 hover:bg-black hover:text-white transition-all w-full sm:w-auto text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
             >
               <div className="flex flex-col">
-                <span className="text-xs uppercase text-[#5B5757]">Next Project</span>
-                <span className="font-bold text-base">{data.nextTitle}</span>
+                <span className="text-xs uppercase text-[#5B5757] group-hover:text-white/80 transition-colors">Next Project</span>
+                <span className="font-bold text-base text-black group-hover:text-white transition-colors">{data.nextTitle}</span>
               </div>
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              <ArrowRight className="h-5 w-5 text-black group-hover:text-white transition-colors" aria-hidden="true" />
             </Link>
           </div>
         </div>

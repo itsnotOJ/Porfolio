@@ -45,7 +45,7 @@ export interface CaseStudyData {
     description: string;
   };
 
-  results: {
+  results?: {
     metric: string;
     label: string;
   }[];
@@ -53,7 +53,7 @@ export interface CaseStudyData {
 
 export const caseStudies: Record<string, CaseStudyData> = {
   nurri: {
-    slug: "nurri AI",
+    slug: "nurri",
     title: "Nurri",
     subtitle: "AI powered health and nutrition platform",
     tagline:
@@ -63,15 +63,15 @@ export const caseStudies: Record<string, CaseStudyData> = {
     role: "Product Designer",
     timeline: "4 Months",
     client: "Nurri",
-    tools: ["Figma",],
+    tools: ["Figma"],
     tags: ["UI/UX Design", "Mobile App", "Web Design", "Design System"],
     logo: "/images/logos/Logo-Nurri.svg",
     heroImage: "/images/projects/Nurri-mockup-2.png",
     heroImageAlt: "Nurri AI Mockup",
     nextSlug: "oxtago",
-    nextTitle: "Oxtago Financial SaaS",
-    prevSlug: "oxtago",
-    prevTitle: "Oxtago Financial SaaS",
+    nextTitle: "Oxtago",
+    prevSlug: "illustrations",
+    prevTitle: "Illustrations",
 
     problem: {
       title: "The Challenge: Making Healthy Eating Consistent",
@@ -177,7 +177,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     logo: "/images/logos/Logo-Oxtago.svg",
     heroImage: "/images/projects/Oxtago-mockup.png",
     heroImageAlt: "Oxtago",
-    nextSlug: "nurri",
+    nextSlug: "illustrations",
     nextTitle: "Illustrations",
     prevSlug: "nurri",
     prevTitle: "Nurri",
@@ -210,43 +210,150 @@ export const caseStudies: Record<string, CaseStudyData> = {
 
     features: [
       {
-        title: "1. Real-Time Revenue & Expense Intelligence",
+        title: "1. Verified Service Providers",
         description:
-          "Integrated dynamic financial charts allowing analysts to drill down from high-level monthly summaries to granular transaction logs in a single click.",
-        imageSrc: "/images/projects/Oxtago-mockup.png",
-        imageAlt: "Oxtago Financial Analytics Widgets",
+          "Every provider has a verified profile with ratings, reviews, skills, and work samples. This gives clients the information they need to make confident hiring decisions.",
+        imageSrc: "/images/projects/Verified-Service-Providers.png",
+        imageAlt: "Oxtago Provider Application Interface",
         highlights: [
-          "Live stream transaction feed with status indicators",
-          "Customizable date ranges & exportable CSV/PDF reports",
-          "Automated anomaly detection alerts for unusual spikes",
+          "Hire with confidence",
+          "Verified profiles with ratings, reviews, and work samples",
+          "Transparent skill credentials to support confident hiring",
         ],
       },
       {
-        title: "2. Team Permissions & Reconciliation Flow",
+        title: "2. Seamless Booking & Payments",
         description:
-          "Streamlined auditor workflows with role-based access control and inline transaction tagging for audit trails.",
-        imageSrc: "/images/projects/About.png",
-        imageAlt: "Oxtago User Permissions Interface",
+          "A guided booking flow lets clients select their service, schedule, add instructions, and review estimated costs before confirming. Secure escrow payments help protect both clients and providers.",
+        imageSrc: "/images/projects/Seamless-Booking-Payments.png",
+        imageAlt: "Oxtago Seamless Booking and Payments Interface",
         highlights: [
-          "Role-based permission matrix (Admin, Accountant, Auditor)",
-          "Inline comment threads for flagged transactions",
-          "Seamless bank account API sync",
+          "Book without the uncertainty",
+          "Guided booking flow with upfront cost estimates",
+          "Secure escrow payments protecting both clients and providers",
+        ],
+      },
+      {
+        title: "3. Real-Time Job Tracking",
+        description:
+          "Clients can track their provider’s journey and follow the job from booking to completion. In-app chat and status updates keep both sides informed throughout the service.",
+        imageSrc: "/images/projects/Real-Time-Job-Tracking.png",
+        imageAlt: "Oxtago Real-Time Job Tracking Interface",
+        highlights: [
+          "Always know what’s happening",
+          "Live provider journey tracking from booking to completion",
+          "In-app chat and real-time status updates",
+        ],
+      },
+      {
+        title: "4. Admin Dashboard",
+        description:
+          "The admin dashboard gives the operations team visibility into users, jobs, payments, providers, and disputes. Admins can verify providers, manage bookings, monitor transactions, and track platform performance through reports and analytics.",
+        imageSrc: "/images/projects/Admin-Dashboard.png",
+        imageAlt: "Oxtago Admin Operations Dashboard",
+        highlights: [
+          "Manage the marketplace from one place",
+          "Full operational visibility across users, jobs, and disputes",
+          "Verify providers, monitor transactions, and track platform analytics",
         ],
       },
     ],
 
     designSystem: {
-      primaryColor: "#000000",
-      secondaryColor: "#5B5757",
-      typography: "Neue Montreal / Inter",
+      primaryColor: "#FF8B00",
+      secondaryColor: "#05061C",
+      typography: "Satoshi / Inter",
       description:
         "Focused on data clarity, strict grid alignment, subtle border separators, and high-contrast numerical typography for zero reading ambiguity.",
     },
+  },
 
-    results: [
-      { metric: "60%", label: "Faster monthly report generation" },
-      { metric: "99.9%", label: "Data accuracy score" },
-      { metric: "$12M+", label: "Monthly transaction volume processed" },
+  illustrations: {
+    slug: "illustrations",
+    title: "Illustrations",
+    subtitle: "Digital Illustration & Visual Identity Collection",
+    tagline:
+      "Custom character illustrations and brand visual assets designed for tech startups, editorial platforms, and digital marketing campaigns.",
+    category: "Digital Illustration",
+    year: "2026",
+    role: "Digital Illustrator",
+    timeline: "Ongoing",
+    client: "Various Clients",
+    tools: ["Figma", "Illustrator", "Procreate"],
+    tags: ["Illustration", "Visual Identity", "Digital Art"],
+    heroImage: "/images/illustrations/Queen-Idia.png",
+    heroImageAlt: "Digital Illustration Art Collection",
+    nextSlug: "nurri",
+    nextTitle: "Nurri",
+    prevSlug: "oxtago",
+    prevTitle: "Oxtago",
+
+    problem: {
+      title: "The Challenge: Visual Identity Beyond Generic Stock",
+      description:
+        "Modern digital products and tech brands often struggle to differentiate themselves in crowded markets. Overused stock graphics and generic vectors fail to convey brand personality, human warmth, or cultural richness.",
+      painPoints: [
+        "Generic stock illustration dilutes brand identity and visual uniqueness.",
+        "Inconsistent visual style across web, mobile, and marketing channels.",
+        "Lack of diverse, expressive character art representing varied user demographics.",
+        "Need for scalable vector assets optimized for fast web rendering.",
+      ],
+    },
+
+    solution: {
+      title: "The Solution: Custom Character & Brand Illustration",
+      description:
+        "Crafted bespoke visual stories, editorial artwork, and character designs that give digital products a distinct identity. Each piece is designed with clean visual hierarchy, scalable vector geometry, and harmonious color palettes.",
+      keyDeliverables: [
+        "Custom character design & expression sheets",
+        "Scalable vector assets for web & mobile interfaces",
+        "Cohesive brand color palettes & icon sets",
+        "High-resolution artwork for digital editorial and marketing campaigns",
+      ],
+    },
+
+    features: [
+      {
+        title: "1. Cultural & Character Art",
+        description:
+          "Rich character illustrations celebrating culture, storytelling, and human expression, designed for high-impact visual engagement.",
+        imageSrc: "/images/illustrations/Queen-Idia.png",
+        imageAlt: "Queen Idia Character Artwork",
+        highlights: [
+          "Detailed vector artwork with vibrant palettes",
+          "Expressive character poses and cultural motifs",
+        ],
+      },
+      {
+        title: "2. Editorial & Storytelling Scenes",
+        description:
+          "Atmospheric illustrations depicting serene moments, artistic voyages, and spatial composition for modern digital platforms.",
+        imageSrc: "/images/illustrations/Artists-voyage.png",
+        imageAlt: "Artist's Voyage Editorial Illustration",
+        highlights: [
+          "Atmospheric lighting and color storytelling",
+          "Versatile assets for editorial and splash screens",
+        ],
+      },
+      {
+        title: "3. UI Graphic & Conceptual Artwork",
+        description:
+          "Clean, minimalist visual elements tailored for landing pages, empty states, hero sections, and mobile application graphics.",
+        imageSrc: "/images/illustrations/Night-time.png",
+        imageAlt: "Night time illustration",
+        highlights: [
+          "Optimized SVG & PNG exports for fast loading",
+          "Harmonious visual style matching modern UI design systems",
+        ],
+      },
     ],
+
+    designSystem: {
+      primaryColor: "#FF5733",
+      secondaryColor: "#1F2937",
+      typography: "Outfit / Inter",
+      description:
+        "Vibrant visual expression anchored by bold primary accents, organic shapes, rich contrast, and scalable vector precision.",
+    },
   },
 };

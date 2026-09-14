@@ -1,71 +1,160 @@
 # Project Specification
 
-## Project
+## Project Name
 
 Mercy Onyilo Portfolio
 
-## Purpose
+---
 
-Build a modern, responsive portfolio from the approved Figma design.
+## Overview
 
-## Audience
+Build a modern, responsive portfolio website based on the approved Figma design.
 
-- Recruiters
+The implementation should closely match the visual design while maintaining clean architecture, accessibility, responsiveness, and excellent performance.
+
+The site should present Mercy as both a Product Designer and Frontend Developer through thoughtful interaction design, strong visual hierarchy, and polished implementation.
+
+---
+
+## Primary Objectives
+
+- Showcase selected UX case studies.
+- Showcase frontend development ability.
+- Showcase illustration work.
+- Create a memorable first impression.
+- Encourage recruiters and hiring managers to make contact.
+- Maintain production-quality implementation.
+
+---
+
+## Target Audience
+
+Primary
+
 - Hiring Managers
+- Recruiters
 - Startup Founders
-- Creative Agencies
 
-## Goals
+Secondary
 
-- Showcase UI/UX projects
-- Showcase illustrations
-- Demonstrate frontend ability
-- Encourage contact
+- Product Teams
+- Design Agencies
+- Frontend Engineers
+- Other Designers
 
-## Pages
+---
 
-- Home
-- About
-- Selected Works
-- Contact
+## Site Architecture
+
+Home
+
+Work
+
+Oxtago Case Study
+
+Nuuri Case Study
+
+Contact
+
+---
+
+## Shared Components
+
+The following components should remain consistent across the site:
+
+Navigation
+
+Footer
+
+Buttons
+
+Tags
+
+Section headings
+
+Spacing system
+
+Typography
+
+---
+
+## Design Principles
+
+Editorial
+
+Minimal
+
+Clean
+
+Professional
+
+Illustration-driven
+
+Highly readable
+
+Consistent spacing
+
+Accessible
+
+Responsive
+
+---
 
 ## Responsive Breakpoints
 
-Desktop:
-1280px+
+Desktop
 
-Tablet:
-768–1279px
+1280px and above
 
-Mobile:
-0–767px
+Tablet
 
-# Deliverables
+768px – 1279px
 
-The completed portfolio should include:
+Mobile
+
+0px – 767px
+
+---
+
+## Deliverables
+
+The completed website should include:
 
 - Responsive navigation
-- Hero section
-- About section
-- Selected Works section
-- Contact section
-- Footer
-- Mobile navigation
+- Responsive footer
+- Home page
+- Work page
+- Oxtago case study
+- Nuuri case study
+- Contact page
 - Responsive layouts
-- Smooth animations
+- Accessible implementation
 - Optimized images
-- Accessibility support
-- Performance optimizations
+- Smooth animations
+- Production-ready code
 
-# Success Criteria
+---
+
+## Success Criteria
 
 The project is complete when:
 
-- Every deliverable has been implemented.
-- The design matches the approved Figma file.
-- The site is fully responsive.
-- Accessibility checks pass.
+- Every page matches the approved Figma design.
+- All layouts work correctly on desktop, tablet, and mobile.
+- Navigation functions correctly across all pages.
 - Images are optimized.
-- Performance is production-ready.
-- All links work correctly.
-- The portfolio is ready to deploy.
+- Accessibility standards have been followed.
+- Components are reusable.
+- Code is clean and maintainable.
+- Performance is suitable for production deployment.
+
+---
+
+## Project Constraints
+
+- Do not redesign approved layouts.
+- Do not introduce unnecessary libraries.
+- Prefer reusable components.
+- Keep the codebase modular.
+- Prioritize accessibility and performance.
+- Match spacing, typography, sizing, and hierarchy from the approved Figma.

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/home";
+import { Hero, AboutPreview } from "@/components/home";
 
 export default function HomePage() {
   return (
@@ -13,6 +13,9 @@ export default function HomePage() {
       <main id="main-content" tabIndex={-1} className="flex-1 w-full outline-none">
         {/* 1. Hero Section */}
         <Hero />
+
+        {/* 2. About Me Section */}
+        <AboutPreview />
       </main>
 
       {/* Global Footer */}

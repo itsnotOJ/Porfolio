@@ -29,32 +29,12 @@ export const AboutPreview: React.FC = () => {
       <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16 flex flex-col gap-12">
         {/* Split Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Portrait & Visual Card */}
+          {/* Left Column: Bio & Core Competencies */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 flex flex-col items-center gap-3"
-          >
-            <div className="relative aspect-4/5 w-full flex items-center justify-center">
-              <Image
-                src="/images/projects/About.png"
-                alt="Mercy Onyilo - Product Designer & Illustrator"
-                fill
-                loading="lazy"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-          </motion.div>
-
-          {/* Right Column: Bio & Core Competencies */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-7 flex flex-col gap-6"
           >
             <SectionHeading
@@ -63,7 +43,7 @@ export const AboutPreview: React.FC = () => {
             />
 
             <p className="text-lg sm:text-xl text-black font-normal leading-relaxed">
-              Hi, my name is Mercy Onyilo, a product designer with over 3 years of
+              Hi, my name is Mercy Onyilo, but my friends call me Iye, a product designer with over 3 years of
               experience crafting digital experiences that seamlessly blend
               technology, aesthetics, and functionality.
             </p>
@@ -91,7 +71,27 @@ export const AboutPreview: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[#5B5757]">
                 Core Competencies
               </span>
-              <TagGroup tags={skills} variant="light" />
+              <TagGroup tags={skills} variant="pastel" />
+            </div>
+          </motion.div>
+
+          {/* Right Column: Portrait & Visual Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 flex flex-col items-center gap-3"
+          >
+            <div className="relative aspect-4/5 w-full flex items-center justify-center">
+              <Image
+                src="/images/projects/About.png"
+                alt="Mercy Onyilo - Product Designer & Illustrator"
+                fill
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-contain transition-transform duration-500 hover:scale-105"
+              />
             </div>
           </motion.div>
         </div>

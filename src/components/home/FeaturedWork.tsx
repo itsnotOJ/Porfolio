@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 
 interface Project {
   id: string;
@@ -39,13 +38,13 @@ const projects: Project[] = [
   {
     id: "oxtago",
     slug: "oxtago",
-    title: "Oxtago Financial SaaS",
-    subtitle: "Enterprise Financial Analytics",
+    title: "Oxtago Hybrid Marketplace",
+    subtitle: "Hybrid Artisan Marketplace",
     description:
-      "A streamlined financial dashboard offering real-time transaction tracking, operational insights, and automated revenue reporting.",
-    tags: ["UI/UX Design", "SaaS", "Dashboard", "Fintech"],
+      "An easy-to-use platform connecting clients with verified artisans and service providers for on-demand or scheduled jobs.",
+    tags: ["UI/UX Design", "Mobile App", "Marketplace", "Web Design"],
     imageSrc: "/images/projects/Oxtago-mockup.png",
-    imageAlt: "Oxtago SaaS Financial Dashboard",
+    imageAlt: "Oxtago Hybrid Artisan Marketplace Interface",
     href: "/work/oxtago",
     isFeatured: false,
   },
@@ -58,7 +57,8 @@ const projects: Project[] = [
     tags: ["Illustration", "Visual Identity", "Digital Art"],
     imageSrc: "/images/illustrations/Queen-Idia.png",
     imageAlt: "Digital Illustration Art Collection",
-    href: "/work",
+    slug: "illustrations",
+    href: "/work/illustrations",
     isFeatured: false,
   },
 ];
@@ -66,9 +66,6 @@ const projects: Project[] = [
 export const FeaturedWork: React.FC = () => {
   return (
     <section id="work" aria-label="Selected works" className="w-full py-12 md:py-20">
-      {/* Infinite Scrolling Marquee Banner */}
-      <MarqueeTicker className="my-8" />
-
       {/* Main Grid Container */}
       <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16 flex flex-col gap-10">
         {/* Section Heading */}

@@ -59,6 +59,8 @@ const allProjects: ProjectCardData[] = [
   },
   {
     id: "brand-illustrations",
+    slug: "illustrations",
+    href: "/work/illustrations",
     title: "Brand Artwork & Characters",
     subtitle: "Digital Illustration & Visual Identity",
     description:

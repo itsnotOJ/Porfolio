@@ -25,3 +25,14 @@ None
 - Final Pre-Deployment Codebase Audit & Checklist Verification (Security, Performance, Accessibility, SEO, Code Quality)
 - Featured Work Case Study Routing Remediation (Updated FeaturedWork component CTA links to route directly to /work/nurri, /work/oxtago, and /work)
 - Production Build Verification (Verified zero TypeScript/ESLint errors and 100% static page prerendering)
+- Updated Key Features copy for Oxtago case study dataset with approved user copy (Verified Service Providers, Seamless Booking & Payments, Real-Time Job Tracking, Admin Dashboard)
+- Added Provider Application mockup image to the Verified Service Providers card in public/images/projects/Verified-Service-Providers.png and updated caseStudies.ts
+- Added Mobile Booking & Payments mockup image to the Seamless Booking & Payments card in public/images/projects/Seamless-Booking-Payments.png and updated caseStudies.ts
+- Added Real-Time Job Tracking mockup image to the Real-Time Job Tracking card in public/images/projects/Real-Time-Job-Tracking.png and updated caseStudies.ts
+- Added Admin Dashboard mockup image to the Admin Dashboard card in public/images/projects/Admin-Dashboard.png and updated caseStudies.ts
+- Added hover zoom micro-interactions (transition-transform duration-500 ease-out group-hover:scale-105) to feature section images and hero images in CaseStudyLayout.tsx
+- Updated next project on Oxtago case study to "Illustrations" (/work/illustrations), updated Nurri previous project to "Illustrations", and added Illustrations case study dataset to caseStudies.ts
+- Created dedicated IllustrationLayout component for /work/illustrations displaying a high-resolution artwork gallery and interactive lightbox modal without case-study text sections, keeping all other case study pages unchanged.
+- Removed Resilience, Countdown Milestone, and Panel Session artwork entries from the /work/illustrations gallery page without affecting any other pages.
+- Removed HT Foundation, Speaker Bio Portrait, and Target Objectives artwork entries from the /work/illustrations gallery page without affecting any other pages.
+- Updated Footer contact CTA button text to "Come say hi" while maintaining the mailto email link.

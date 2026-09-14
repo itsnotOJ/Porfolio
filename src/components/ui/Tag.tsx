@@ -3,7 +3,13 @@ import { cn } from "@/lib/utils";
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
-  variant?: "dark" | "light" | "outline";
+  variant?:
+    | "dark"
+    | "light"
+    | "outline"
+    | "pastel-blue"
+    | "pastel-green"
+    | "pastel-purple";
 }
 
 export const Tag: React.FC<TagProps> = ({
@@ -19,6 +25,9 @@ export const Tag: React.FC<TagProps> = ({
     dark: "bg-black text-white",
     light: "bg-[#D9D9D9] text-black",
     outline: "bg-transparent text-black border border-black/30",
+    "pastel-blue": "bg-[#EBF5FF] text-[#1E3A8A] border border-[#BFDBFE]",
+    "pastel-green": "bg-[#F0FDF4] text-[#14532D] border border-[#BBF7D0]",
+    "pastel-purple": "bg-[#FAF5FF] text-[#581C87] border border-[#E9D5FF]",
   };
 
   return (
@@ -35,7 +44,14 @@ Tag.displayName = "Tag";
 
 export interface TagGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   tags?: string[];
-  variant?: "dark" | "light" | "outline";
+  variant?:
+    | "dark"
+    | "light"
+    | "outline"
+    | "pastel"
+    | "pastel-blue"
+    | "pastel-green"
+    | "pastel-purple";
   children?: React.ReactNode;
 }
 
@@ -46,17 +62,27 @@ export const TagGroup: React.FC<TagGroupProps> = ({
   children,
   ...props
 }) => {
+  const pastelVariants: Array<
+    "pastel-blue" | "pastel-green" | "pastel-purple"
+  > = ["pastel-blue", "pastel-green", "pastel-purple"];
+
   return (
     <div
       className={cn("flex flex-wrap items-center gap-2", className)}
       {...props}
     >
       {tags
-        ? tags.map((tag) => (
-            <Tag key={tag} variant={variant}>
-              {tag}
-            </Tag>
-          ))
+        ? tags.map((tag, i) => {
+            const currentVariant =
+              variant === "pastel"
+                ? pastelVariants[i % pastelVariants.length]
+                : variant;
+            return (
+              <Tag key={tag} variant={currentVariant}>
+                {tag}
+              </Tag>
+            );
+          })
         : children}
     </div>
   );

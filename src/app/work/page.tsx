@@ -3,7 +3,6 @@ import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { MarqueeTicker } from "@/components/ui/MarqueeTicker";
 import { WorkGallery } from "@/components/work/WorkGallery";
 
 export const metadata: Metadata = {
@@ -31,9 +30,6 @@ export default function WorkPage() {
 
         {/* Work Gallery with Interactive Category Filters & Case Study Modals */}
         <WorkGallery />
-
-        {/* Marquee Banner */}
-        <MarqueeTicker className="my-12" />
       </main>
 
       {/* Global Footer */}

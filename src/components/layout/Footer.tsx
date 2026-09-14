@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               className="w-full sm:w-auto text-base sm:text-lg px-8 py-4 rounded-[27px] flex items-center justify-center gap-3"
             >
               <Mail className="h-5 w-5" aria-hidden="true" />
-              <span>iyenugwa18@gmail.com</span>
+              <span>Come say hi</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </PrimaryButton>
 
