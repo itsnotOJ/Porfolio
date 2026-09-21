@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, animate } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TagGroup } from "@/components/ui/Tag";
 
@@ -22,6 +22,72 @@ const highlights = [
   { stat: "10+", label: "Projects Completed" },
   { stat: "98%", label: "Client Satisfaction" },
 ];
+
+interface StatCounterProps {
+  stat: string;
+  label: string;
+}
+
+const StatCounter: React.FC<StatCounterProps> = ({ stat, label }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [displayCount, setDisplayCount] = useState(0);
+
+  // Parse stat string once
+  const matchRef = useRef(stat.match(/^(\D*)(\d+)(\D*)$/));
+  const match = matchRef.current;
+  const prefix = match ? match[1] : "";
+  const targetValue = match ? parseInt(match[2], 10) : 0;
+  const suffix = match ? match[3] : stat;
+
+  useEffect(() => {
+    if (!match || !ref.current) return;
+
+    // Respect reduced motion settings
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayCount(targetValue);
+      return;
+    }
+
+    let animationControls: { stop: () => void } | null = null;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+
+          animationControls = animate(0, targetValue, {
+            duration: 2,
+            ease: "easeOut",
+            onUpdate: (latest) => {
+              setDisplayCount(Math.round(latest));
+            },
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(ref.current);
+
+    return () => {
+      observer.disconnect();
+      if (animationControls) {
+        animationControls.stop();
+      }
+    };
+  }, [targetValue, match]);
+
+  return (
+    <div className="flex flex-col gap-1">
+      <span ref={ref} className="text-2xl sm:text-4xl font-bold tracking-tight text-black">
+        {match ? `${prefix}${displayCount}${suffix}` : stat}
+      </span>
+      <span className="text-xs sm:text-sm text-[#5B5757]">
+        {label}
+      </span>
+    </div>
+  );
+};
 
 export const AboutPreview: React.FC = () => {
   return (
@@ -55,14 +121,7 @@ export const AboutPreview: React.FC = () => {
             {/* Metrics */}
             <div className="grid grid-cols-3 gap-4 py-4 border-y border-black/10">
               {highlights.map((item, i) => (
-                <div key={i} className="flex flex-col gap-1">
-                  <span className="text-2xl sm:text-4xl font-bold tracking-tight text-black">
-                    {item.stat}
-                  </span>
-                  <span className="text-xs sm:text-sm text-[#5B5757]">
-                    {item.label}
-                  </span>
-                </div>
+                <StatCounter key={i} stat={item.stat} label={item.label} />
               ))}
             </div>
 
