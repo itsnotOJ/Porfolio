@@ -432,6 +432,26 @@ Placing the "About Me" section first provides visiting recruiters and prospectiv
 
 ---
 
+# Decision 022
+
+## Title
+
+Vercel Web Analytics Integration & Production Deployment
+
+Status
+
+Approved
+
+Decision
+
+Integrate `@vercel/analytics` by embedding the `<Analytics />` component in the root layout (`src/app/layout.tsx`), installing global Vercel CLI and Gemini plugin, and deploying the application to production using `vercel --prod`.
+
+Reason
+
+Enables real-time tracking of page views, visitor metrics, and performance analytics directly in the Vercel Dashboard without impacting site performance or requiring custom tracking scripts.
+
+---
+
 # Future Decisions
 
 Record future decisions here using the same format.

@@ -38,3 +38,4 @@ None
 - Updated Footer contact CTA button text to "Come say hi" while maintaining the mailto email link.
 - Updated mobile navigation menu overlay in Navbar.tsx with a solid white background fill (bg-white) and body scroll lock when open, preventing background page text from bleeding through.
 - Added scroll-triggered count-up animation (`StatCounter` using Framer Motion `useInView`, `animate`, and `useReducedMotion`) to the metrics numbers in `AboutPreview.tsx`.
+- Integrated `@vercel/analytics` into `src/app/layout.tsx`, installed Vercel CLI & Gemini plugin, and successfully deployed production build to Vercel.
